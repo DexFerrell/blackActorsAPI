@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const PORT = 8000
+const cors = require('cors')
+
+app.use(cors())
 
 const actorActress = {
   'zendaya': {
@@ -35,6 +38,6 @@ app.get('/api/:actorName', (request, response) => {
   }
 })
 
-app.listen(PORT, (request, response) => {
+app.listen(process.env.PORT || PORT, (request, response) => {
   console.log(`The server is running on port ${PORT}!`)
 })
